@@ -12,7 +12,10 @@ body {
 .app {
   border: 1px solid red;
   text-align: center;
-  background-color: lightgray;
+  background-color: #ffffff;
+  opacity: 0.8;
+  background-image: radial-gradient(#444cf7 0.5px, #ffffff 0.5px);
+  background-size: 10px 10px;
 }
 
 .container {
@@ -26,12 +29,17 @@ body {
 .avatar-container {
   border: 1px solid red;
   width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .avatar-wrapper {
+  border: 1px solid red;
+  border-radius: 10px;
   position: sticky;
   top: calc(50% - 250px);
   height: 500px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -40,10 +48,10 @@ body {
 }
 
 .avatar {
+  border: 1px solid red;
   position: relative;
   height: 280px;
   width: 260px;
-  border: 1px solid red;
 }
 
 .avatar-layer {
@@ -58,13 +66,17 @@ body {
 
 .part-list-wrapper {
   width: 50%;
+  margin-right: 2rem;
 }
 
 .part-list-items {
   border: 1px solid red;
+  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3rem;
+  background-color: rgba(241, 196, 15, 0.7);
+  border-radius: 5px;
   gap: 1rem;
   align-content: stretch;
 }
@@ -77,9 +89,13 @@ body {
 }
 
 .items:hover {
-  background-color: darkgray;
+  background-color: rgb(220, 118, 51);
 }
 
 .items:active {
-  box-shadow: 1px 1px 1px rgb(255, 255, 255);
+  box-shadow: 1px 1px 1px 1px rgb(255, 255, 255);
+}
+
+.selected {
+  background-color: rgb(220, 118, 51) !important;
 }

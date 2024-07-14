@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import PartList from "./components/PartList";
 import Avatar from "./components/Avatar";
@@ -8,7 +8,8 @@ const total = {
   body: 17,
   eyes: 17,
   hair: 73,
-  facial_hair: 17,
+  hats: 28,
+  mouths: 17,
   mouth: 24,
   eyebrows: 15,
   glasses: 17,
@@ -16,16 +17,12 @@ const total = {
   clothing2: 5,
   clothing3: 9,
 };
-const body = [];
-for (let i = 0; i < total.body; i++) {
-  const path = `/character/body/${i + 1}.png`;
-  body.push(path);
-}
 
 function App() {
   const [body, setBody] = useState(9);
   const [hair, setHair] = useState(9);
-  const [facialHair, setFacialHair] = useState(0);
+  const [hats, setHats] = useState(0);
+  const [mouths, setMouths] = useState(0);
   const [eyes, setEyes] = useState(10);
   const [eyebrows, setEyebrows] = useState(0);
   const [glasses, setGlasses] = useState(0);
@@ -36,7 +33,7 @@ function App() {
   const randomize = () => {
     setBody(Math.ceil(Math.random() * total.body));
     setHair(Math.ceil(Math.random() * total.hair));
-    setFacialHair(Math.ceil(Math.random() * total.facial_hair));
+    setMouths(Math.ceil(Math.random() * total.mouths));
     setEyes(Math.ceil(Math.random() * total.eyes));
     setEyebrows(Math.ceil(Math.random() * total.eyebrows));
     setGlasses(Math.ceil(Math.random() * total.glasses));
@@ -44,6 +41,10 @@ function App() {
     setLayer2(Math.ceil(Math.random() * total.clothing2));
     setLayer3(Math.ceil(Math.random() * total.clothing3));
   };
+
+  useEffect(() => {
+    randomize();
+  }, []);
 
   return (
     <div className="app">
@@ -56,7 +57,7 @@ function App() {
             <Avatar
               body={body}
               hair={hair}
-              facial_hair={facialHair}
+              mouths={mouths}
               eyes={eyes}
               eyebrows={eyebrows}
               glasses={glasses}
@@ -65,7 +66,7 @@ function App() {
               layer_3={layer3}
             />
             <div className="randomize">
-              <button className="randomize-btn" onClick={randomize}>
+              <button className="randomize-btn" onClick={() => randomize()}>
                 RANDOMIZE!
               </button>
             </div>
@@ -74,23 +75,48 @@ function App() {
         <div className="part-list-wrapper">
           <div className="part-list">
             <h2>Body</h2>
-            <PartList path="body" total={total.body} setPart={setBody} />
+            <PartList
+              path="body"
+              total={total.body}
+              setPart={setBody}
+              selected={body}
+            />
           </div>
           <div className="part-list">
             <h2>HAIR</h2>
-            <PartList path="hair" total={total.hair} setPart={setHair} />
+            <PartList
+              path="hair"
+              total={total.hair}
+              setPart={setHair}
+              selected={hair}
+            />
           </div>
           <div className="part-list">
-            <h2>FACIAL HAIR</h2>
+            <h2>HAT</h2>
             <PartList
-              path="facial_hair"
-              total={total.facial_hair}
-              setPart={setFacialHair}
+              path="accessories/hats"
+              total={total.hats}
+              setPart={setHats}
+              selected={hats}
+            />
+          </div>
+          <div className="part-list">
+            <h2>MOUTHS</h2>
+            <PartList
+              path="mouths"
+              total={total.mouths}
+              setPart={setMouths}
+              selected={mouths}
             />
           </div>
           <div className="part-list">
             <h2>EYE</h2>
-            <PartList path="eyes" total={total.eyes} setPart={setEyes} />
+            <PartList
+              path="eyes"
+              total={total.eyes}
+              setPart={setEyes}
+              selected={eyes}
+            />
           </div>
           <div className="part-list">
             <h2>EYEBROWs</h2>
@@ -98,6 +124,7 @@ function App() {
               path="eyebrows"
               total={total.eyebrows}
               setPart={setEyebrows}
+              selected={eyebrows}
             />
           </div>
           <div className="part-list">
@@ -106,6 +133,7 @@ function App() {
               path="accessories/glasses"
               total={total.glasses}
               setPart={setGlasses}
+              selected={glasses}
             />
           </div>
           <div className="part-list">
@@ -114,6 +142,7 @@ function App() {
               path="clothes/layer_1"
               total={total.clothing1}
               setPart={setLayer1}
+              selected={layer1}
             />
           </div>
           <div className="part-list">
@@ -122,6 +151,7 @@ function App() {
               path="clothes/layer_2"
               total={total.clothing2}
               setPart={setLayer2}
+              selected={layer2}
             />
           </div>
           <div className="part-list">
@@ -130,6 +160,7 @@ function App() {
               path="clothes/layer_3"
               total={total.clothing3}
               setPart={setLayer3}
+              selected={layer3}
             />
           </div>
         </div>

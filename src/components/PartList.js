@@ -1,10 +1,10 @@
 import React from "react";
 
-function PartList({ path, total, setPart, body }) {
+function PartList({ path, total, setPart, selected }) {
   const part = [];
   for (let i = 0; i < total; i++) {
     const partUrl = (
-      <div key={path + i}>
+      <div key={path + i} className={selected === i + 1 ? "selected" : ""}>
         <img
           className="items"
           src={`/character/${path}/${i + 1}.png`}
