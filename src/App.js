@@ -33,6 +33,7 @@ function App() {
   const randomize = () => {
     setBody(Math.ceil(Math.random() * total.body));
     setHair(Math.ceil(Math.random() * total.hair));
+    setHats(Math.ceil(Math.random() * total.hats));
     setMouths(Math.ceil(Math.random() * total.mouths));
     setEyes(Math.ceil(Math.random() * total.eyes));
     setEyebrows(Math.ceil(Math.random() * total.eyebrows));
@@ -57,6 +58,7 @@ function App() {
             <Avatar
               body={body}
               hair={hair}
+              hats={hats}
               mouths={mouths}
               eyes={eyes}
               eyebrows={eyebrows}
