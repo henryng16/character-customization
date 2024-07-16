@@ -49,8 +49,8 @@ function App() {
 
   return (
     <div className="app">
-      <h1>CHARACTER</h1>
-      <h2>🛠️Customization🛠️</h2>
+      <h1 className="title">CHARACTER</h1>
+      <h2 className="sub-title">🛠️Customization🛠️</h2>
       <div className="divider"></div>
       <div className="container">
         <div className="avatar-container">
@@ -76,7 +76,7 @@ function App() {
         </div>
         <div className="part-list-wrapper">
           <div className="part-list">
-            <h2>Body</h2>
+            <h2 className="part-title">BODY</h2>
             <PartList
               path="body"
               total={total.body}
@@ -85,7 +85,7 @@ function App() {
             />
           </div>
           <div className="part-list">
-            <h2>HAIR</h2>
+            <h2 className="part-title">HAIR</h2>
             <PartList
               path="hair"
               total={total.hair}
@@ -94,7 +94,7 @@ function App() {
             />
           </div>
           <div className="part-list">
-            <h2>HAT</h2>
+            <h2 className="part-title">HAT</h2>
             <PartList
               path="accessories/hats"
               total={total.hats}
@@ -103,34 +103,37 @@ function App() {
             />
           </div>
           <div className="part-list">
-            <h2>MOUTHS</h2>
+            <h2 className="part-title">MOUTHS</h2>
             <PartList
               path="mouths"
               total={total.mouths}
               setPart={setMouths}
               selected={mouths}
+              zoom={2}
             />
           </div>
           <div className="part-list">
-            <h2>EYE</h2>
+            <h2 className="part-title">EYE</h2>
             <PartList
               path="eyes"
               total={total.eyes}
               setPart={setEyes}
               selected={eyes}
+              zoom={2}
             />
           </div>
           <div className="part-list">
-            <h2>EYEBROWs</h2>
+            <h2 className="part-title">EYEBROWS</h2>
             <PartList
               path="eyebrows"
               total={total.eyebrows}
               setPart={setEyebrows}
               selected={eyebrows}
+              zoom={2}
             />
           </div>
           <div className="part-list">
-            <h2>GLASSES</h2>
+            <h2 className="part-title">GLASSES</h2>
             <PartList
               path="accessories/glasses"
               total={total.glasses}
@@ -139,7 +142,7 @@ function App() {
             />
           </div>
           <div className="part-list">
-            <h2>CLOTHING - L1</h2>
+            <h2 className="part-title">CLOTHING - L1</h2>
             <PartList
               path="clothes/layer_1"
               total={total.clothing1}
@@ -148,7 +151,7 @@ function App() {
             />
           </div>
           <div className="part-list">
-            <h2>CLOTHING - L2</h2>
+            <h2 className="part-title">CLOTHING - L2</h2>
             <PartList
               path="clothes/layer_2"
               total={total.clothing2}
@@ -157,12 +160,14 @@ function App() {
             />
           </div>
           <div className="part-list">
-            <h2>CLOTHING - L3</h2>
+            <h2 className="part-title">CLOTHING - L3</h2>
             <PartList
               path="clothes/layer_3"
               total={total.clothing3}
               setPart={setLayer3}
               selected={layer3}
+              zoom="2"
+              top="-30"
             />
           </div>
         </div>
